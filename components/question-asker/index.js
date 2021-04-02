@@ -10,7 +10,7 @@ const QuestionAsker = props => {
   const [selectedQuestion, setSelectedQuestion] = useState({ id: -1, text: '' });
   const [customQuestionText, setCustomQuestionText] = useState('');
   const [error, setError] = useState('');
-  const [selectedGerne, setSelectedGerne] = useState('');
+  const [selectedGenre, setSelectedGenre] = useState('');
  
 
   //save the player's question choice
@@ -51,6 +51,7 @@ const QuestionAsker = props => {
   useEffect(() => {
     if ((props.GameData !== undefined) && (props.GameData.questionAsker.uid === props.auth.uid) && (props.GameData.question === "")) {
       setSelectedQuestion({ id: -1, text: "" });
+      
       setCustomQuestionText("");
       const getQuestions = async() => {
         let someQuestions = [];
@@ -66,7 +67,7 @@ const QuestionAsker = props => {
           counter.current +=1;
           if (dbQuestion.size > 0) {
             dbQuestion.forEach(q => {
-              if (q.data().genre===selectedGenre){
+              if (q.data().genre === selectedGenre){
               //wrap below statement in an if condition that checks q.data().genre is equal to selectedGenre
               potentialQuestion = q.data().questionText;}
             });
@@ -75,7 +76,7 @@ const QuestionAsker = props => {
             counter.current +=1;
             if (dbQuestion.size > 0) {
             dbQuestion.forEach(q => {
-              if (q.data().genre===selectedGenre){
+              if (q.data().genre === selectedGenre){
               //wrap below statement in an if condition that checks q.data().genre is equal to selectedGenre
               potentialQuestion = q.data().questionText;}
             });
@@ -90,17 +91,18 @@ const QuestionAsker = props => {
           }
         }
         setQuestions(someQuestions);
-        console.log(counter.current)
+        console.log(someQuestions);
+        console.log(counter.current);
       }
       getQuestions();
     }
-  }}, [props.GameData,selectedGerne]);
+  }}, [props.GameData,selectedGenre]);
   
 
 
 
   //show the question list if no question has been asked
-  if ((selectedGerne === "") ){
+  if ((selectedGenre === "") ){
     return (
       <View style={props.styles.aoGameContainer}>
         <View style={props.styles.aoGameInnerContainer}>
@@ -110,17 +112,17 @@ const QuestionAsker = props => {
                 {"Mortal, which genre shall the Spirits answer?"}
               </Text>
               <View style={{display: "flex", flexDirection: "column", marginTop: 36, alignItems: "center", justifyContent: "flex-start", width: "100%"}}>
-                  <TouchableOpacity style={selectedQuestion.id === index ? props.styles.aoQuestionRowSelected : props.styles.aoQuestionRow} key={index} onPress={() => setSelectedGerne("only-with-friends")}>
+                  <TouchableOpacity style={props.styles.aoQuestionRow} onPress={() => setSelectedGenre("only-with-friends")}>
                     <Text style={props.styles.aoQuestionText}>
                      only-with-friends
                     </Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={selectedQuestion.id === index ? props.styles.aoQuestionRowSelected : props.styles.aoQuestionRow} key={index} onPress={() => setSelectedGerne("family-friendly")}>
+                  <TouchableOpacity style={props.styles.aoQuestionRow}  onPress={() => setSelectedGenre("family-friendly")}>
                     <Text style={props.styles.aoQuestionText}>
                     family-friendly
                     </Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={selectedQuestion.id === index ? props.styles.aoQuestionRowSelected : props.styles.aoQuestionRow} key={index} onPress={() => setSelectedGerne("office-friendly")}>
+                  <TouchableOpacity style={ props.styles.aoQuestionRow}  onPress={() => setSelectedGenre("office-friendly")}>
                     <Text style={props.styles.aoQuestionText}>
                     office-friendly
                     </Text>
@@ -144,7 +146,7 @@ const QuestionAsker = props => {
               </Text>
               <View style={{display: "flex", flexDirection: "column", marginTop: 36, alignItems: "center", justifyContent: "flex-start", width: "100%"}}>
                 {questions.map((question, index) => (
-                  <TouchableOpacity style={selectedQuestion.id === index ? props.styles.aoQuestionRowSelected : props.styles.aoQuestionRow} key={index} onPress={() => selectedQuestion(index, question)}>
+                  <TouchableOpacity style={selectedQuestion.id === index ? props.styles.aoQuestionRowSelected : props.styles.aoQuestionRow} key={index} onPress={() => selectQuestion(index, question)}>
                     <Text style={props.styles.aoQuestionText}>
                       {question}
                     </Text>
