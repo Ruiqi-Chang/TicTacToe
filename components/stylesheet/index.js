@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     flexShrink: 0,
     height: "100%",
     width: "100%",
-    backgroundColor: "#221E22",
+    backgroundColor: "#E5E5E5",
   },
   aoGameInnerContainer: {
     display: "flex",
@@ -24,23 +24,23 @@ const styles = StyleSheet.create({
   aoGreetingsImage: {
     flexGrow: 0,
     flexShrink: 1,
-    width: "100%",
+    width: "80%",
   },
   aoGameBar: {
-    backgroundColor: "#221E22",
+    backgroundColor: "#E5E5E5",
     flexGrow: 1,
     padding: 12,
     width: "100%",
   },
   aoHeadline: {
     fontFamily: "Heebo-Black",
-    color: "#FFFFFF",
+    color: "#004777",
     fontSize: 24,
     textAlign: "center",
   },
   aoText: {
     fontFamily: "Heebo-Light",
-    color: "#FFFFFF",
+    color: "#004777",
     fontSize: 14,
     textAlign: "center",
   },
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 44,
     padding: 12,
-    backgroundColor: "#ECA72C",
+    backgroundColor: "#E0C8FF",
     borderRadius: 2,
     marginTop: 12,
     display: "flex",
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 44,
     padding: 12,
-    backgroundColor: "#464646",
+    backgroundColor: "#E0C8FF",
     borderRadius: 2,
     marginTop: 12,
     display: "flex",
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   },
   aoPrimaryButtonText: {
     fontFamily: "Heebo-Bold",
-    color: "#221E22",
+    color: "#004777",
     fontSize: 14,
     textAlign: "center",
   },
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     padding: 12,
     borderWidth: 1,
     borderStyle: "solid",
-    borderColor: "#464646",
+    borderColor: "#E0C8FF",
     marginTop: 12,
     display: "flex",
     flexDirection: "row",
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
   },
   aoGameTitle: {
     fontFamily: "Megrim",
-    color: "#FFFFFF",
+    color: "#004777",
     fontSize: 24,
     textAlign: "center",
     marginBottom: 12,
@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   aoCodeTextbox: {
-    backgroundColor: "#383438",
+    backgroundColor: "#E0C8FF",
     height: 44,
     paddingHorizontal: 12,
     color: "#FFFFFF",
@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
   aoTextbox: {
-    backgroundColor: "#383438",
+    backgroundColor: "#E0C8FF",
     height: 44,
     paddingHorizontal: 12,
     textAlign: "left",
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
   aoLobbyContainer: {
-    backgroundColor: "#000000",
+    backgroundColor: "#A192FE",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -199,16 +199,19 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     width: "100%",
     marginBottom: 12,
+    marginLeft: 12,
+    marginRight: 12,
   },
   aoPlayerRowAvatar: {
     marginRight: 12,
+    flexDirection: "row",
     flexGrow: 0,
     width: 36,
     height: 36,
   },
   aoPlayerRowName: {
     flexGrow: 1,
-    fontFamily: "Heebo",
+    fontFamily: "Roboto-Light",
     fontSize: 14,
     color: "#FFFFFF",
   },
@@ -310,6 +313,92 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     maxWidth: "100%",
   },
+  playdisplay: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexGrow: 0,
+    alignContent: 'center',
+    marginTop:100
+  },
+  buttonRow: {
+    display: "flex",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignContent: 'center',
+  },
+  block:{
+    borderWidth:5,
+    width:100,
+    height:100,
+  },
+
+  blockX:{
+    color:'red',
+    fontSize:75,
+    alignItems: "center",
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignSelf:"center"
+
+  },
+
+  blockO:{
+    color:'green',
+    fontSize:75,
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignSelf:"center"
+  },
+
+  restartButton:{
+    width:100,
+    height:50,
+    borderWidth:1,
+    marginTop: 100,
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignSelf: "center"
+  },
+
+  gametext: {
+    fontSize:20,
+    width:300,
+    height:50,
+    marginTop: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignSelf: "center",
+    color:"#000000",
+  },
+
+  scrollViewStyles: {
+    paddingLeft: 6,
+    paddingBottom: 12,
+    flexGrow: 0,
+    width: "100%",
+  },
+  scrollViewContainer: {
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
+    flexGrow: 1,
+  },
+  userContainer: {
+    flexDirection: "row",
+    marginLeft: 12,
+    marginRight: 12,
+    alignItems: "center",
+    justifyContent: "flex-start",
+    maxWidth: 60,
+  },
+
+  
 });
 
 export default styles;
